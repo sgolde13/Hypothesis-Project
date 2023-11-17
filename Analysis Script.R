@@ -3,7 +3,16 @@
 ## Setup
 ###################################################################
 # R version 4.3.1
-library(geneExpressionFromGEO)    # v. 0.9
+
+# https://bioconductor.org/install/
+if (!require("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+BiocManager::install()
+
+BiocManager::install(c("GEOquery"), force = TRUE)
+
+library(GEOquery)    # v. 2.68.0
+
 
 ###################################################################
 ## Functions
@@ -11,4 +20,10 @@ library(geneExpressionFromGEO)    # v. 0.9
 
 ###################################################################
 ## Access Transcriptomics Datasets Available in GEO
+# https://genomicsclass.github.io/book/pages/GEOquery.html
+
+a <- getGEO("GSE2770", GSEMatrix = TRUE)
+
+
+
 
